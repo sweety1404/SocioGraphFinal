@@ -11,6 +11,8 @@ export class SupplierDetailsComponent implements OnInit {
   suppliers:any;
   p: number = 1;
   currentPage:number=1;
+  isDisabled:boolean=false;
+  isLastDisabled:boolean=false;
 
   constructor(private SupplierService: SupplierService ) { }
   
@@ -34,9 +36,12 @@ export class SupplierDetailsComponent implements OnInit {
     this.SupplierService.getData(page).subscribe(
       (data) => {
         
-          console.log(data.data);
+          // console.log(data.data);
+          console.log(data);
           this.suppliers=data.data;
           this.currentPage=page;
+          this.isDisabled=data.is_first;
+          this.isLastDisabled=data.is_last;
       },
       (error) => {
           console.log(error);
