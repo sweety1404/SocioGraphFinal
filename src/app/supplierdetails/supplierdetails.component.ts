@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SupplierService } from '../services/supplier.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-supplierdetails',
@@ -10,26 +9,41 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SupplierDetailsComponent implements OnInit {
   id!: number;
   suppliers:any;
+  p: number = 1;
+  currentPage:number=1;
 
-  constructor(private SupplierService: SupplierService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private SupplierService: SupplierService ) { }
   
   ngOnInit() {
 
    
-      
+    this.setPage(1);
     this.SupplierService.getAll().subscribe(
       (data) => {
         
-          console.log(data.data);
-          this.suppliers=data.data;
+          // console.log(data.data);
+          // this.suppliers=data.data;
       },
       (error) => {
           console.log(error);
       }
   );
+    }
+
+  setPage(page: number) {
+    this.SupplierService.getData(page).subscribe(
+      (data) => {
+        
+          console.log(data.data);
+          this.suppliers=data.data;
+          this.currentPage=page;
+      },
+      (error) => {
+          console.log(error);
+      }
+    ) 
 
   }
 
   
-
-}
+  }

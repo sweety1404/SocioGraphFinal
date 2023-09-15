@@ -23,5 +23,11 @@ export class SupplierService {
     return this.httpClient.get(this.baseUrl, this.httpOptions);
   }
 
+  // Make a GET request
+  getData(page_number: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}?_page_number=${page_number}`, this.httpOptions);
+    console.log(this.httpClient.get(`${this.baseUrl}?_page_number=${page_number}`, this.httpOptions));
+  }
+
   
 }

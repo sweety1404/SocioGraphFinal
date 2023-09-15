@@ -9,25 +9,22 @@ import { SupplierDetailsComponent } from './supplierdetails/supplierdetails.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-// import { UpdateUserComponent } from './update-user/update-user.component';
 import { FormsModule } from '@angular/forms';
-// import { AddUserComponent } from './add-user/add-user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    // SupplierlistComponent,
     SupplierDetailsComponent,
-    // UpdateSupplierComponent,
-    // AddSupplierComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -41,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

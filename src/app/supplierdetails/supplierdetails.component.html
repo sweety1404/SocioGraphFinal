@@ -2,14 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <!-- <ul class="list-group">
-                    <li 
-                        *ngFor="let supplier of suppliers"
-                        class="list-group-item">
-                        {{ supplier.state }}
-                    </li>
-                  </ul> -->
-            </div>
+                <h2>Suppliers Information</h2></div>
         </div>
         <div class="row">
             <div class="col-md-4" *ngFor="let supplier of suppliers">
@@ -25,6 +18,20 @@
                         <p class="card-title"><b>Source Time</b>: {{supplier.source_time}}</p>
                     </div>
                   </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                Current Page : {{currentPage}}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button class="page-link" (click)="setPage(currentPage-1)">Previous</button></li>
+                      <li class="page-item"><a class="page-link" (click)="setPage(1)">1</a></li>
+                      <li class="page-item"><a class="page-link" (click)="setPage(2)">2</a></li>
+                      <li class="page-item"><a class="page-link" (click)="setPage(3)">3</a></li>
+                      <li class="page-item"><button class="page-link" (click)="setPage(currentPage+1)">Next</button></li>
+                    </ul>
+                  </nav>
             </div>
         </div>
     </div>
